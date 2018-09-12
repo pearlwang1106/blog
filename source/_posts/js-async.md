@@ -1,7 +1,7 @@
 ---
 title: 异步的顺序执行：promise, generator 以及 async/await
 date: 2018-08-27 14:36:51
-tags: ['jsvascript', 'promise', 'async/await', 'generator']
+tags: ['javascript', 'promise', 'async/await', 'generator']
 ---
 
 ## 1. 名词解释
