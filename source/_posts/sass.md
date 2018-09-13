@@ -14,17 +14,17 @@ sass 可以认为是 css 的预处理, 在 CSS 语法的基础上增加了变量
     - 变量作用域
     - 变量命名中线和下划线不做区分($custom-name 和 $custom_name 是一样的)
 
-```css
-$width: 5em;
-#main {
-  width: $width;
-}
+    ```css
+    $width: 5em;
+    #main {
+    width: $width;
+    }
 
-/* 编译后 */
-#main {
-  width: 5em;
-}
-```
+    /* 编译后 */
+    #main {
+    width: 5em;
+    }
+    ```
 - 允许嵌套
     - 父选择器用 & 表示
     - 属性嵌套
@@ -36,11 +36,12 @@ $width: 5em;
     - scss
     - css
 
-```css
-/* 文件 _colors.scss */
+    ```css
+    /* 文件 _colors.scss */
 
-@import colors
-```
+    @import colors
+    ```
+
 - 支持继承
     - 多重继承
     - 链式继承
