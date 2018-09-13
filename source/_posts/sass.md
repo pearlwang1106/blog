@@ -6,7 +6,7 @@ tags: ['sass']
 
 > 参考文档: https://www.sass.hk/docs/
 
-sass 可以认为是 css 的预处理, 在 CSS 语法的基础上增加了变量 (variables)、嵌套 (nested rules)、混合 (mixins)、导入 (inline imports) 等高级功能，这些拓展令 CSS 更加强大与优雅. 开源库[compass](http://compass-style.org/) 中就是基于 sass 完成的一个非常丰富的样式框架，包括大量定义好的mixin，函数，以及对SASS的扩展
+Sass 可以认为是 css 的预处理, 在 CSS 语法的基础上增加了变量 (variables)、嵌套 (nested rules)、混合 (mixins)、导入 (inline imports) 等高级功能，这些拓展令 CSS 更加强大与优雅. 开源库[compass](http://compass-style.org/) 中就是基于 sass 完成的一个非常丰富的样式框架，包括大量定义好的mixin，函数，以及对SASS的扩展
 
 ## sass 主要特点
 
