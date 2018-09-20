@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="javascript,面试," />
+  <meta name="keywords" content="javascript,webpack," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="说明ES5 中 var 定义的变量会做变量提升（提升至当前作用域），ES6 中的 let 不会做变量提升，但是会造成块级作用域的暂时性死区  参考：http://es6.ruanyifeng.com/#docs/let  问题有如下代码，请写出输出结果： 12345678910111213141516171819var a = 1;var b  = 2;function F () &amp;#123;">
-<meta name="keywords" content="javascript,面试">
+<meta name="description" content="打包优化的几种方式1. dll对于一些比较大的库，可以先进性打包后在引入 2. happypack 多线程打包启用多线程打包，js 是单线程，所以启用子进程打包  注意：项目比较小的时候，分配子进程所耗费的时候反而会增加打包时间，降低打包效率  1/* webpack.config.js */ 3. tree-shakingmodule 改成 production，此时打包过程中，没有 impor">
+<meta name="keywords" content="javascript,webpack">
 <meta property="og:type" content="article">
-<meta property="og:title" content="变量作用域：var 和 let">
-<meta property="og:url" content="http://yoursite.com/2018/08/27/js-var-and-let/index.html">
+<meta property="og:title" content="webpack v4+ 打包优化学习笔记">
+<meta property="og:url" content="http://yoursite.com/2018/09/14/webpack/index.html">
 <meta property="og:site_name" content="Pearl&#39;s Blog">
-<meta property="og:description" content="说明ES5 中 var 定义的变量会做变量提升（提升至当前作用域），ES6 中的 let 不会做变量提升，但是会造成块级作用域的暂时性死区  参考：http://es6.ruanyifeng.com/#docs/let  问题有如下代码，请写出输出结果： 12345678910111213141516171819var a = 1;var b  = 2;function F () &amp;#123;">
+<meta property="og:description" content="打包优化的几种方式1. dll对于一些比较大的库，可以先进性打包后在引入 2. happypack 多线程打包启用多线程打包，js 是单线程，所以启用子进程打包  注意：项目比较小的时候，分配子进程所耗费的时候反而会增加打包时间，降低打包效率  1/* webpack.config.js */ 3. tree-shakingmodule 改成 production，此时打包过程中，没有 impor">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-08-27T13:10:34.000Z">
+<meta property="og:updated_time" content="2018-09-18T02:31:16.341Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="变量作用域：var 和 let">
-<meta name="twitter:description" content="说明ES5 中 var 定义的变量会做变量提升（提升至当前作用域），ES6 中的 let 不会做变量提升，但是会造成块级作用域的暂时性死区  参考：http://es6.ruanyifeng.com/#docs/let  问题有如下代码，请写出输出结果： 12345678910111213141516171819var a = 1;var b  = 2;function F () &amp;#123;">
+<meta name="twitter:title" content="webpack v4+ 打包优化学习笔记">
+<meta name="twitter:description" content="打包优化的几种方式1. dll对于一些比较大的库，可以先进性打包后在引入 2. happypack 多线程打包启用多线程打包，js 是单线程，所以启用子进程打包  注意：项目比较小的时候，分配子进程所耗费的时候反而会增加打包时间，降低打包效率  1/* webpack.config.js */ 3. tree-shakingmodule 改成 production，此时打包过程中，没有 impor">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/08/27/js-var-and-let/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/09/14/webpack/"/>
 
 
 
 
 
-  <title>变量作用域：var 和 let | Pearl's Blog</title>
+  <title>webpack v4+ 打包优化学习笔记 | Pearl's Blog</title>
   
 
 
@@ -243,7 +243,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/27/js-var-and-let/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/14/webpack/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Pearl">
@@ -260,7 +260,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">变量作用域：var 和 let</h1>
+          <h1 class="post-title" itemprop="name headline">webpack v4+ 打包优化学习笔记</h1>
         
 
         <div class="post-meta">
@@ -272,8 +272,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-27T20:57:51+08:00">
-                2018-08-27
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-14T21:08:03+08:00">
+                2018-09-14
               </time>
             
 
@@ -310,14 +310,24 @@
       
 
       
-        <h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>ES5 中 var 定义的变量会做变量提升（提升至当前作用域），ES6 中的 let 不会做变量提升，但是会造成块级作用域的暂时性死区</p>
-<blockquote>
-<p>参考：<a href="http://es6.ruanyifeng.com/#docs/let" target="_blank" rel="noopener">http://es6.ruanyifeng.com/#docs/let</a></p>
+        <h2 id="打包优化的几种方式"><a href="#打包优化的几种方式" class="headerlink" title="打包优化的几种方式"></a>打包优化的几种方式</h2><h3 id="1-dll"><a href="#1-dll" class="headerlink" title="1. dll"></a>1. dll</h3><p>对于一些比较大的库，可以先进性打包后在引入</p>
+<h3 id="2-happypack-多线程打包"><a href="#2-happypack-多线程打包" class="headerlink" title="2. happypack 多线程打包"></a>2. happypack 多线程打包</h3><p>启用多线程打包，js 是单线程，所以启用子进程打包</p>
+<ul>
+<li>注意：项目比较小的时候，分配子进程所耗费的时候反而会增加打包时间，降低打包效率</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* webpack.config.js */</span></span><br></pre></td></tr></table></figure>
+<h3 id="3-tree-shaking"><a href="#3-tree-shaking" class="headerlink" title="3. tree-shaking"></a>3. tree-shaking</h3><p>module 改成 production，此时打包过程中，没有 import 的function 不会被打包， 从容减少打包后文件的大小</p>
+<ul>
+<li>注意 node exports.a 写法不会进行 tree-shakingstree-shakings</li>
+</ul>
+<h3 id="4-避免重复打包"><a href="#4-避免重复打包" class="headerlink" title="4. 避免重复打包"></a>4. 避免重复打包</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">output: &#123;</span><br><span class="line">    filename: [name].js,</span><br><span class="line">&#125;,</span><br><span class="line">optimization: &#123;</span><br><span class="line">    splitChunks: &#123;</span><br><span class="line">        cacheGroups: &#123;</span><br><span class="line">            common: &#123;</span><br><span class="line">                chunks: <span class="string">'initial'</span>,</span><br><span class="line">                minChunks: <span class="number">2</span>,</span><br><span class="line">                minSize: <span class="number">0</span></span><br><span class="line">            &#125;,</span><br><span class="line">            vendor: &#123;</span><br><span class="line">                test: <span class="regexp">/node_modules/</span>, <span class="comment">// 一般用来限制第三方插件多次打包</span></span><br><span class="line">                chunks: <span class="string">'initial'</span>,</span><br><span class="line">                minChunks: <span class="number">2</span>,</span><br><span class="line">                minSize: <span class="number">0</span>,</span><br><span class="line">                priority: <span class="number">10</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="5"><a href="#5" class="headerlink" title="5."></a>5.</h3><blockquote>
+<p>参考链接：<a href="https://webpack.docschina.org/plugins/module-concatenation-plugin" target="_blank" rel="noopener">https://webpack.docschina.org/plugins/module-concatenation-plugin</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let ModuleConcatenationPlugin</span><br></pre></td></tr></table></figure></p>
 </blockquote>
-<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>有如下代码，请写出输出结果：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">var</span> b  = <span class="number">2</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">F</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.a);</span><br><span class="line">    <span class="built_in">console</span>.log(a);</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.b);</span><br><span class="line">    <span class="built_in">console</span>.log(b);</span><br><span class="line">    <span class="keyword">let</span> a = <span class="number">3</span>;</span><br><span class="line">    <span class="keyword">var</span> b = <span class="number">4</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.a);</span><br><span class="line">        <span class="built_in">console</span>.log(a);</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.b);</span><br><span class="line">        <span class="built_in">console</span>.log(b);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> d = F();</span><br><span class="line">d();</span><br></pre></td></tr></table></figure>
-<p>根据 var 以及 let 的特型，对上面的代码进行转换（同时标记每行输出）：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">var</span> b  = <span class="number">2</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">F</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> b = <span class="literal">undefined</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.a); <span class="comment">// 1</span></span><br><span class="line">    <span class="built_in">console</span>.log(a);      <span class="comment">// ReferenceError  有 let 暂时性死区导致</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.b); <span class="comment">// 2</span></span><br><span class="line">    <span class="built_in">console</span>.log(b);      <span class="comment">// undefined</span></span><br><span class="line">    <span class="keyword">let</span> a = <span class="number">3</span>;</span><br><span class="line">    <span class="keyword">var</span> b = <span class="number">4</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.a); <span class="comment">// 1</span></span><br><span class="line">        <span class="built_in">console</span>.log(a);      <span class="comment">// 3</span></span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.b); <span class="comment">// 2</span></span><br><span class="line">        <span class="built_in">console</span>.log(b);      <span class="comment">// 4</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 此种调用方式，非严格模式下，F() 中的 this 会找其上级，所以最终指向 window */</span></span><br><span class="line"><span class="keyword">var</span> d = F();</span><br><span class="line">d();</span><br></pre></td></tr></table></figure>
+<h3 id="6-懒加载"><a href="#6-懒加载" class="headerlink" title="6. 懒加载"></a>6. 懒加载</h3><blockquote>
+<p>参考文档：<a href="https://router.vuejs.org/guide/advanced/lazy-loading.html#grouping-components-in-the-same-chunk" target="_blank" rel="noopener">https://router.vuejs.org/guide/advanced/lazy-loading.html#grouping-components-in-the-same-chunk</a></p>
+</blockquote>
+
       
     </div>
     
@@ -336,7 +346,7 @@
           
             <a href="/tags/javascript/" rel="tag"># javascript</a>
           
-            <a href="/tags/面试/" rel="tag"># 面试</a>
+            <a href="/tags/webpack/" rel="tag"># webpack</a>
           
         </div>
       
@@ -349,8 +359,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/08/27/88-merge-sorted-array/" rel="next" title="【LeetCode】88. Merge Sorted Array">
-                <i class="fa fa-chevron-left"></i> 【LeetCode】88. Merge Sorted Array
+              <a href="/2018/09/13/sass/" rel="next" title="Sass 学习">
+                <i class="fa fa-chevron-left"></i> Sass 学习
               </a>
             
           </div>
@@ -359,8 +369,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/08/28/pseudo/" rel="prev" title="伪元素 vs 伪类">
-                伪元素 vs 伪类 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/09/20/ideals30/" rel="prev" title="理想三旬">
+                理想三旬 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -498,7 +508,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#说明"><span class="nav-number">1.</span> <span class="nav-text">说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题"><span class="nav-number">2.</span> <span class="nav-text">问题</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#打包优化的几种方式"><span class="nav-number">1.</span> <span class="nav-text">打包优化的几种方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-dll"><span class="nav-number">1.1.</span> <span class="nav-text">1. dll</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-happypack-多线程打包"><span class="nav-number">1.2.</span> <span class="nav-text">2. happypack 多线程打包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-tree-shaking"><span class="nav-number">1.3.</span> <span class="nav-text">3. tree-shaking</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-避免重复打包"><span class="nav-number">1.4.</span> <span class="nav-text">4. 避免重复打包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5"><span class="nav-number">1.5.</span> <span class="nav-text">5.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-懒加载"><span class="nav-number">1.6.</span> <span class="nav-text">6. 懒加载</span></a></li></ol></li></ol></div>
             
 
           </div>
