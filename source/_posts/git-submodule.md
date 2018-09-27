@@ -45,8 +45,11 @@ git submodule add https://github.com/son pathTo
 #### 2. clone 子模块项目
 
 ```javascript
-/* --recursive 会自动的拉去子项目并对其进行更新 */
-git clone --recursive father // 假设父项目叫 fathe
+/**
+ * --recursive 会自动的c lone子项目
+ * 相当于 git submodule init && git submodule update 
+ */
+git clone --recursive father // 假设父项目叫 father
 
 或
 
