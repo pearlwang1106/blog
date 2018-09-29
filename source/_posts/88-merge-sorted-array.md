@@ -1,6 +1,6 @@
 ---
 title: 【LeetCode】88. Merge Sorted Array
-date: 2018-08-27 20:08:01
+date: 2018-08-26 20:08:01
 tags: ['leetcode', 'javascript', '数组']
 ---
 

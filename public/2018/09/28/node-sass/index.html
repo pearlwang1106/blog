@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="javascript,原型,面试," />
+  <meta name="keywords" content="node,sass," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="面试的时候被到原型的相关问题，回来后再次学习了一下原型及原型链，在这里做个总结。 问题 1234567891011121314case1:function F() &amp;#123;&amp;#125;var f = new F();case2:function F() &amp;#123;return &amp;apos;123&amp;apos;;&amp;#125;var f = new F();case3:function F() &amp;">
-<meta name="keywords" content="javascript,原型,面试">
+<meta name="description" content="每日一言: 绿茶家的面包诱惑🍨真的好好吃👀  目前本地使用的 node 版本是 7.7.4, 据说太高版本的 node 在编译的时候回有 sass 报错, 所以尝试解决了一下 升级node123node stable// node 切换版本  node 7.7.4 升级后对应的本地工具版本分别是:  node 10.10.0 npm 6.4.1 cnpm 6.0.0  编译 项目中编译 1n">
+<meta name="keywords" content="node,sass">
 <meta property="og:type" content="article">
-<meta property="og:title" content="原型及原型链的简单理解">
-<meta property="og:url" content="http://yoursite.com/2018/08/23/js-prototype/index.html">
+<meta property="og:title" content="node 升级 sass 编译报错解决方案">
+<meta property="og:url" content="http://yoursite.com/2018/09/28/node-sass/index.html">
 <meta property="og:site_name" content="Pearl&#39;s Blog">
-<meta property="og:description" content="面试的时候被到原型的相关问题，回来后再次学习了一下原型及原型链，在这里做个总结。 问题 1234567891011121314case1:function F() &amp;#123;&amp;#125;var f = new F();case2:function F() &amp;#123;return &amp;apos;123&amp;apos;;&amp;#125;var f = new F();case3:function F() &amp;">
+<meta property="og:description" content="每日一言: 绿茶家的面包诱惑🍨真的好好吃👀  目前本地使用的 node 版本是 7.7.4, 据说太高版本的 node 在编译的时候回有 sass 报错, 所以尝试解决了一下 升级node123node stable// node 切换版本  node 7.7.4 升级后对应的本地工具版本分别是:  node 10.10.0 npm 6.4.1 cnpm 6.0.0  编译 项目中编译 1n">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-08-26T14:31:45.000Z">
+<meta property="og:updated_time" content="2018-09-28T05:10:46.917Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="原型及原型链的简单理解">
-<meta name="twitter:description" content="面试的时候被到原型的相关问题，回来后再次学习了一下原型及原型链，在这里做个总结。 问题 1234567891011121314case1:function F() &amp;#123;&amp;#125;var f = new F();case2:function F() &amp;#123;return &amp;apos;123&amp;apos;;&amp;#125;var f = new F();case3:function F() &amp;">
+<meta name="twitter:title" content="node 升级 sass 编译报错解决方案">
+<meta name="twitter:description" content="每日一言: 绿茶家的面包诱惑🍨真的好好吃👀  目前本地使用的 node 版本是 7.7.4, 据说太高版本的 node 在编译的时候回有 sass 报错, 所以尝试解决了一下 升级node123node stable// node 切换版本  node 7.7.4 升级后对应的本地工具版本分别是:  node 10.10.0 npm 6.4.1 cnpm 6.0.0  编译 项目中编译 1n">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/08/23/js-prototype/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/09/28/node-sass/"/>
 
 
 
 
 
-  <title>原型及原型链的简单理解 | Pearl's Blog</title>
+  <title>node 升级 sass 编译报错解决方案 | Pearl's Blog</title>
   
 
 
@@ -243,7 +243,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/23/js-prototype/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/28/node-sass/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Pearl">
@@ -260,7 +260,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">原型及原型链的简单理解</h1>
+          <h1 class="post-title" itemprop="name headline">node 升级 sass 编译报错解决方案</h1>
         
 
         <div class="post-meta">
@@ -272,8 +272,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-23T10:43:31+08:00">
-                2018-08-23
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-28T13:03:43+08:00">
+                2018-09-28
               </time>
             
 
@@ -310,30 +310,34 @@
       
 
       
-        <p>面试的时候被到原型的相关问题，回来后再次学习了一下原型及原型链，在这里做个总结。</p>
-<p><strong>问题</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">case1:</span><br><span class="line"></span><br><span class="line">function F() &#123;&#125;</span><br><span class="line">var f = new F();</span><br><span class="line"></span><br><span class="line">case2:</span><br><span class="line"></span><br><span class="line">function F() &#123;return &apos;123&apos;;&#125;</span><br><span class="line">var f = new F();</span><br><span class="line"></span><br><span class="line">case3:</span><br><span class="line"></span><br><span class="line">function F() &#123;return &#123;a:1&#125;;&#125;</span><br><span class="line">var f = new F();</span><br></pre></td></tr></table></figure>
-<p>这两种情况，f 的原型是如何指向的？</p>
-<p><strong>理解</strong></p>
-<p>想要知道 f 的原型指向，需要先了解 f 具体是什么。下面先说一下经过上述步骤后 的具体值分别是什么。</p>
-<p>首先，通过 new 来调用函数或者方法的方式，是<code>构造函数调用</code>。有三种情况：</p>
-<ol>
-<li>构造函数不使用 return 关键字，这种情况下，会初始化一个新的对象，这个对象继承自构造函数的 prototype 属性；当构造函数的执行体执行完毕时，会返回这个新对象。此时，构造函数调用表达式的计算结果就是这个新对象的值，如问题中的 case1。</li>
-<li>构造函数显式的使用了 return 关键字，返回了一个原始值，如问题中的 case2；这种情况下，仍然会初始化一个新的对象，这个对象继承自构造函数的 prototype 属性，return 的返回值将会被忽略，同时使用新对象作为调用结果。</li>
-<li>构造函数显式的使用了 return 关键字，并且返回了一个对象，如问题中的 case3，这种情况下，调用表达式的值就是这个对象。</li>
-</ol>
-<p>如果问题描述不是很清楚，可以从代码层面理解一下，new 过程的代码实现：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">function new() &#123;</span><br><span class="line">    // 创建一个空的对象</span><br><span class="line">    let obj = new Object()</span><br><span class="line">    // 获得构造函数</span><br><span class="line">    let Con = [].shift.call(arguments)</span><br><span class="line">    // 链接到原型</span><br><span class="line">    obj.__proto__ = Con.prototype</span><br><span class="line">    // 绑定 this，执行构造函数</span><br><span class="line">    let result = Con.apply(obj, arguments)</span><br><span class="line">    // 确保 new 出来的是个对象</span><br><span class="line">    return typeof result === &apos;object&apos; ? result : obj;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>从代码也可以看出，new 的过程最后会判断函数中 return 的是否是 object，不是的话才会返回一个新的对象</p>
-<p>所以上述问题中的三种情况，结果分别是：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">case1:</span><br><span class="line">console.log(f);  // F &#123;&#125;</span><br><span class="line"></span><br><span class="line">case2:</span><br><span class="line">console.log(f);  // F &#123;&#125;</span><br><span class="line"></span><br><span class="line">case3:</span><br><span class="line">console.log(f); // &#123;a: 1&#125;</span><br></pre></td></tr></table></figure>
-<p>所以，根据原型链可知</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">case1:</span><br><span class="line"></span><br><span class="line">f.__proto__ === F.prototype;</span><br><span class="line">F.__proto__ === Function.prototype;</span><br><span class="line">F.prototype.__proto__ === Object.prototype // 原型对象也是对象</span><br><span class="line"></span><br><span class="line">case2:</span><br><span class="line"></span><br><span class="line">同 case1</span><br><span class="line"></span><br><span class="line">case3:</span><br><span class="line"></span><br><span class="line">f.__proto__ === Object.prototype</span><br><span class="line">F.__proto__ === Function.prototype</span><br><span class="line">F.prototype.__proto__ === Object.prototype // 原型对象也是对象</span><br></pre></td></tr></table></figure>
+        <blockquote>
+<p>每日一言: 绿茶家的面包诱惑🍨真的好好吃👀</p>
+</blockquote>
+<p>目前本地使用的 node 版本是 7.7.4, 据说太高版本的 node 在编译的时候回有 sass 报错, 所以尝试解决了一下</p>
+<h1 id="升级node"><a href="#升级node" class="headerlink" title="升级node"></a>升级node</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">node stable</span><br><span class="line"></span><br><span class="line"><span class="comment">// node 切换版本  node 7.7.4</span></span><br></pre></td></tr></table></figure>
+<p>升级后对应的本地工具版本分别是:</p>
 <ul>
-<li>参考文档：<ul>
-<li><a href="https://github.com/KieSun/Blog/issues/2" target="_blank" rel="noopener">https://github.com/KieSun/Blog/issues/2</a></li>
-<li>javascript 权威指南</li>
+<li>node 10.10.0</li>
+<li>npm 6.4.1</li>
+<li>cnpm 6.0.0</li>
 </ul>
+<h1 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h1><ul>
+<li><p>项目中编译</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run build 编译</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>会发现报错:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Found bindings <span class="keyword">for</span> the following environments:</span><br><span class="line"></span><br><span class="line">    OS X <span class="number">64</span>-bit <span class="keyword">with</span> Node.js <span class="number">7.</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>解决方法:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm rebuild node-sass</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>再次编译</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run build 编译 <span class="comment">// 通过</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>可以对比升级前后产出目录diff</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">diff -urNa 目录<span class="number">1</span> 目录<span class="number">2</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 
@@ -353,11 +357,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/javascript/" rel="tag"># javascript</a>
+            <a href="/tags/node/" rel="tag"># node</a>
           
-            <a href="/tags/原型/" rel="tag"># 原型</a>
-          
-            <a href="/tags/面试/" rel="tag"># 面试</a>
+            <a href="/tags/sass/" rel="tag"># sass</a>
           
         </div>
       
@@ -370,8 +372,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/08/23/007-reverse-integer/" rel="next" title="【LeetCode】7. reverse Integer">
-                <i class="fa fa-chevron-left"></i> 【LeetCode】7. reverse Integer
+              <a href="/2018/09/27/vue-router-code/" rel="next" title="【学习笔记】vue-router 使用">
+                <i class="fa fa-chevron-left"></i> 【学习笔记】vue-router 使用
               </a>
             
           </div>
@@ -379,10 +381,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/08/23/709-to-lower-case/" rel="prev" title="【LeetCode】709. to Lower Case">
-                【LeetCode】709. to Lower Case <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -434,8 +432,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -454,7 +461,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -467,7 +474,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -500,6 +507,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#升级node"><span class="nav-number">1.</span> <span class="nav-text">升级node</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#编译"><span class="nav-number">2.</span> <span class="nav-text">编译</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

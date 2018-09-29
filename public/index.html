@@ -239,6 +239,155 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/28/node-sass/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Pearl">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/22272732?s=400&u=c8f3c5767dd9b1f6527be3f6d838171f8e69d1d1&v=4">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Pearl's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/28/node-sass/" itemprop="url">node 升级 sass 编译报错解决方案</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-28T13:03:43+08:00">
+                2018-09-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>每日一言: 绿茶家的面包诱惑🍨真的好好吃👀</p>
+</blockquote>
+<p>目前本地使用的 node 版本是 7.7.4, 据说太高版本的 node 在编译的时候回有 sass 报错, 所以尝试解决了一下</p>
+<h1 id="升级node"><a href="#升级node" class="headerlink" title="升级node"></a>升级node</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">node stable</span><br><span class="line"></span><br><span class="line"><span class="comment">// node 切换版本  node 7.7.4</span></span><br></pre></td></tr></table></figure>
+<p>升级后对应的本地工具版本分别是:</p>
+<ul>
+<li>node 10.10.0</li>
+<li>npm 6.4.1</li>
+<li>cnpm 6.0.0</li>
+</ul>
+<h1 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h1><ul>
+<li><p>项目中编译</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run build 编译</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>会发现报错:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Found bindings <span class="keyword">for</span> the following environments:</span><br><span class="line"></span><br><span class="line">    OS X <span class="number">64</span>-bit <span class="keyword">with</span> Node.js <span class="number">7.</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>解决方法:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm rebuild node-sass</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>再次编译</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run build 编译 <span class="comment">// 通过</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>可以对比升级前后产出目录diff</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">diff -urNa 目录<span class="number">1</span> 目录<span class="number">2</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/27/vue-router-code/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -516,6 +665,426 @@
 </li>
 </ul>
 <h1 id="写在后面"><a href="#写在后面" class="headerlink" title="写在后面"></a>写在后面</h1><p>所以 <code>_.get</code> 是根据传入的 path(可以是字符串或数组格式) 来获取对应的 object 中的值</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/25/js-var-and-let/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Pearl">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/22272732?s=400&u=c8f3c5767dd9b1f6527be3f6d838171f8e69d1d1&v=4">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Pearl's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/25/js-var-and-let/" itemprop="url">变量作用域：var 和 let</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-25T20:57:51+08:00">
+                2018-09-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>ES5 中 var 定义的变量会做变量提升（提升至当前作用域），ES6 中的 let 不会做变量提升，但是会造成块级作用域的暂时性死区</p>
+<blockquote>
+<p>参考：<a href="http://es6.ruanyifeng.com/#docs/let" target="_blank" rel="noopener">http://es6.ruanyifeng.com/#docs/let</a></p>
+</blockquote>
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>有如下代码，请写出输出结果：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">var</span> b  = <span class="number">2</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">F</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.a);</span><br><span class="line">    <span class="built_in">console</span>.log(a);</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.b);</span><br><span class="line">    <span class="built_in">console</span>.log(b);</span><br><span class="line">    <span class="keyword">let</span> a = <span class="number">3</span>;</span><br><span class="line">    <span class="keyword">var</span> b = <span class="number">4</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.a);</span><br><span class="line">        <span class="built_in">console</span>.log(a);</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.b);</span><br><span class="line">        <span class="built_in">console</span>.log(b);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> d = F();</span><br><span class="line">d();</span><br></pre></td></tr></table></figure>
+<p>根据 var 以及 let 的特型，对上面的代码进行转换（同时标记每行输出）：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">var</span> b  = <span class="number">2</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">F</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> b = <span class="literal">undefined</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.a); <span class="comment">// 1</span></span><br><span class="line">    <span class="built_in">console</span>.log(a);      <span class="comment">// ReferenceError  有 let 暂时性死区导致</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.b); <span class="comment">// 2</span></span><br><span class="line">    <span class="built_in">console</span>.log(b);      <span class="comment">// undefined</span></span><br><span class="line">    <span class="keyword">let</span> a = <span class="number">3</span>;</span><br><span class="line">    <span class="keyword">var</span> b = <span class="number">4</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.a); <span class="comment">// 1</span></span><br><span class="line">        <span class="built_in">console</span>.log(a);      <span class="comment">// 3</span></span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.b); <span class="comment">// 2</span></span><br><span class="line">        <span class="built_in">console</span>.log(b);      <span class="comment">// 4</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 此种调用方式，非严格模式下，F() 中的 this 会找其上级，所以最终指向 window */</span></span><br><span class="line"><span class="keyword">var</span> d = F();</span><br><span class="line">d();</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/24/single-number/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Pearl">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/22272732?s=400&u=c8f3c5767dd9b1f6527be3f6d838171f8e69d1d1&v=4">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Pearl's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/24/single-number/" itemprop="url">【LeetCode】Single Number I && II && III</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-24T13:24:33+08:00">
+                2018-09-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>题目连接:<br>I:   <a href="https://leetcode.com/problems/single-number/description/" target="_blank" rel="noopener">https://leetcode.com/problems/single-number/description/</a><br>II:  <a href="https://leetcode.com/problems/single-number-ii/description/" target="_blank" rel="noopener">https://leetcode.com/problems/single-number-ii/description/</a><br>III: <a href="https://leetcode.com/problems/single-number-iii/description/" target="_blank" rel="noopener">https://leetcode.com/problems/single-number-iii/description/</a></p>
+</blockquote>
+<h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p><strong>Single Number I</strong>: 给一个整数数组，数组中只有一个整数只出现一次，其他的整数分别出现两次</p>
+<ul>
+<li>输入：[4, 1, 2, 1, 2]</li>
+<li>输出：4</li>
+</ul>
+<p><strong>Single Number II</strong>: 给一个整数数组，数组中只有一个整数只出现一次，其他的整数最少现两次</p>
+<ul>
+<li>输入：[2, 2, 3, 2]</li>
+<li>输出：3</li>
+</ul>
+<p><strong>Single Number III</strong>: 给一个整数数组，求出数组中只出现一次的数组结果</p>
+<ul>
+<li>输入：[1, 2, 1, 3, 2, 5]</li>
+<li>输出：[3, 5]</li>
+</ul>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p><strong>Single Number I</strong>: 最简单的方法是通过位运算，一次遍历即可<br><strong>Single Number II</strong>: </p>
+<ul>
+<li>第一种：从第一个元素开始向后找，找到所有重复的元素置空，双重循环时间复杂度要 O(n^2)</li>
+<li>第二种：空间换时间，一遍循环将每个数字出现的次数存到一个对象中（因为有负数的情况，所以用数组），最后将次数为 1 的返回</li>
+</ul>
+<p><strong>Single Number I</strong>: 在 II 的基础上，返回数组即可</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><p><strong>Single Number I</strong>:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * @param &#123;number[]&#125; nums</span><br><span class="line"> * @return &#123;number&#125;</span><br><span class="line"> */</span><br><span class="line">var singleNumber = function(nums) &#123;</span><br><span class="line">    var r = 0;</span><br><span class="line">    for(i = 0; i &lt; nums.length; i++) &#123;</span><br><span class="line">        r = r ^ nums[i];</span><br><span class="line">    &#125;</span><br><span class="line">    return r;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><strong>Single Number II</strong>:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * </span><br><span class="line"> * 第一种</span><br><span class="line"> * @param &#123;number[]&#125; nums</span><br><span class="line"> * @return &#123;number&#125;</span><br><span class="line"> */</span><br><span class="line">var singleNumber = function(nums) &#123;</span><br><span class="line">    var f;</span><br><span class="line">    for(var i = 0; i &lt; nums.length; i++) &#123;</span><br><span class="line">        f = 0;</span><br><span class="line">        for(var j = i + 1; j &lt; nums.length; j++) &#123;</span><br><span class="line">            if (nums[j] === nums[i]) &#123;</span><br><span class="line">                nums[j] = null;</span><br><span class="line">                f = 1;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        if (f === 1) &#123;</span><br><span class="line">                nums[i] = null;</span><br><span class="line">            &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    for(var i = 0; i &lt; nums.length; i++) &#123;</span><br><span class="line">        if (nums[i] !== null) &#123;</span><br><span class="line">            return nums[i]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * 第二种</span><br><span class="line"> * @param &#123;number[]&#125; nums</span><br><span class="line"> * @return &#123;number&#125;</span><br><span class="line"> */</span><br><span class="line">var singleNumber = function(nums) &#123;</span><br><span class="line">    var a = &#123;&#125;;</span><br><span class="line">    for(var i = 0; i &lt; nums.length; i++) &#123;</span><br><span class="line">        if(!!a[nums[i]]) &#123;</span><br><span class="line">            a[nums[i]] += 1;</span><br><span class="line">        &#125;</span><br><span class="line">        else &#123;</span><br><span class="line">            a[nums[i]] = 1;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    for(var i = 0; i &lt; nums.length; i++) &#123;</span><br><span class="line">        if(a[nums[i]] === 1) &#123;</span><br><span class="line">            delete a;</span><br><span class="line">            return nums[i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><strong>Single Number III</strong>:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * @param &#123;number[]&#125; nums</span><br><span class="line"> * @return &#123;number[]&#125;</span><br><span class="line"> */</span><br><span class="line">var singleNumber = function(nums) &#123;</span><br><span class="line">    var a = &#123;&#125;;</span><br><span class="line">    var r = [];</span><br><span class="line">    for(var i = 0; i &lt; nums.length; i++) &#123;</span><br><span class="line">        if(!!a[nums[i]]) &#123;</span><br><span class="line">            a[nums[i]] += 1;</span><br><span class="line">        &#125;</span><br><span class="line">        else &#123;</span><br><span class="line">            a[nums[i]] = 1;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    for(var i = 0; i &lt; nums.length; i++) &#123;</span><br><span class="line">        if(a[nums[i]] === 1) &#123;</span><br><span class="line">            r.push(nums[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    delete a;</span><br><span class="line">    return r;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/23/js-prototype/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Pearl">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/22272732?s=400&u=c8f3c5767dd9b1f6527be3f6d838171f8e69d1d1&v=4">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Pearl's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/23/js-prototype/" itemprop="url">原型及原型链的简单理解</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-23T10:43:31+08:00">
+                2018-09-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>面试的时候被到原型的相关问题，回来后再次学习了一下原型及原型链，在这里做个总结。</p>
+<p><strong>问题</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">case1:</span><br><span class="line"></span><br><span class="line">function F() &#123;&#125;</span><br><span class="line">var f = new F();</span><br><span class="line"></span><br><span class="line">case2:</span><br><span class="line"></span><br><span class="line">function F() &#123;return &apos;123&apos;;&#125;</span><br><span class="line">var f = new F();</span><br><span class="line"></span><br><span class="line">case3:</span><br><span class="line"></span><br><span class="line">function F() &#123;return &#123;a:1&#125;;&#125;</span><br><span class="line">var f = new F();</span><br></pre></td></tr></table></figure>
+<p>这两种情况，f 的原型是如何指向的？</p>
+<p><strong>理解</strong></p>
+<p>想要知道 f 的原型指向，需要先了解 f 具体是什么。下面先说一下经过上述步骤后 的具体值分别是什么。</p>
+<p>首先，通过 new 来调用函数或者方法的方式，是<code>构造函数调用</code>。有三种情况：</p>
+<ol>
+<li>构造函数不使用 return 关键字，这种情况下，会初始化一个新的对象，这个对象继承自构造函数的 prototype 属性；当构造函数的执行体执行完毕时，会返回这个新对象。此时，构造函数调用表达式的计算结果就是这个新对象的值，如问题中的 case1。</li>
+<li>构造函数显式的使用了 return 关键字，返回了一个原始值，如问题中的 case2；这种情况下，仍然会初始化一个新的对象，这个对象继承自构造函数的 prototype 属性，return 的返回值将会被忽略，同时使用新对象作为调用结果。</li>
+<li>构造函数显式的使用了 return 关键字，并且返回了一个对象，如问题中的 case3，这种情况下，调用表达式的值就是这个对象。</li>
+</ol>
+<p>如果问题描述不是很清楚，可以从代码层面理解一下，new 过程的代码实现：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">function new() &#123;</span><br><span class="line">    // 创建一个空的对象</span><br><span class="line">    let obj = new Object()</span><br><span class="line">    // 获得构造函数</span><br><span class="line">    let Con = [].shift.call(arguments)</span><br><span class="line">    // 链接到原型</span><br><span class="line">    obj.__proto__ = Con.prototype</span><br><span class="line">    // 绑定 this，执行构造函数</span><br><span class="line">    let result = Con.apply(obj, arguments)</span><br><span class="line">    // 确保 new 出来的是个对象</span><br><span class="line">    return typeof result === &apos;object&apos; ? result : obj;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>从代码也可以看出，new 的过程最后会判断函数中 return 的是否是 object，不是的话才会返回一个新的对象</p>
+<p>所以上述问题中的三种情况，结果分别是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">case1:</span><br><span class="line">console.log(f);  // F &#123;&#125;</span><br><span class="line"></span><br><span class="line">case2:</span><br><span class="line">console.log(f);  // F &#123;&#125;</span><br><span class="line"></span><br><span class="line">case3:</span><br><span class="line">console.log(f); // &#123;a: 1&#125;</span><br></pre></td></tr></table></figure>
+<p>所以，根据原型链可知</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">case1:</span><br><span class="line"></span><br><span class="line">f.__proto__ === F.prototype;</span><br><span class="line">F.__proto__ === Function.prototype;</span><br><span class="line">F.prototype.__proto__ === Object.prototype // 原型对象也是对象</span><br><span class="line"></span><br><span class="line">case2:</span><br><span class="line"></span><br><span class="line">同 case1</span><br><span class="line"></span><br><span class="line">case3:</span><br><span class="line"></span><br><span class="line">f.__proto__ === Object.prototype</span><br><span class="line">F.__proto__ === Function.prototype</span><br><span class="line">F.prototype.__proto__ === Object.prototype // 原型对象也是对象</span><br></pre></td></tr></table></figure>
+<ul>
+<li>参考文档：<ul>
+<li><a href="https://github.com/KieSun/Blog/issues/2" target="_blank" rel="noopener">https://github.com/KieSun/Blog/issues/2</a></li>
+<li>javascript 权威指南</li>
+</ul>
+</li>
+</ul>
 
           
         
@@ -1113,597 +1682,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/11/003-longest-substring-without-repeatint-characters/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Pearl">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/22272732?s=400&u=c8f3c5767dd9b1f6527be3f6d838171f8e69d1d1&v=4">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Pearl's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/09/11/003-longest-substring-without-repeatint-characters/" itemprop="url">【Leetcode】3. Longest Substring Without Repeating Characters</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-11T21:58:34+08:00">
-                2018-09-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>题目链接：<a href="https://leetcode.com/problems/longest-substring-without-repeating-characters/description/" target="_blank" rel="noopener">https://leetcode.com/problems/longest-substring-without-repeating-characters/description/</a></p>
-</blockquote>
-<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定一个字符串，找出不含有重复字符的最长子串的长度</p>
-<h2 id="输入输出"><a href="#输入输出" class="headerlink" title="输入输出"></a>输入输出</h2><p><strong>示例1：</strong></p>
-<ul>
-<li>输入：”abcabcbb”</li>
-<li>输出：3</li>
-</ul>
-<p><strong>示例2：</strong></p>
-<ul>
-<li>输入：”bbbbb”</li>
-<li>输出：1</li>
-</ul>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>前几天做了一道通过滑动窗口解决道问题，这里依然借用这个思想。</p>
-<p>首先有一个 map 对象，来存字符串中出现的单个字符最近的坐标（可以理解为最接近right的坐标）。如果 left 和 right 中出现了重复字符，则 left 指针移动道重复字符后一位，当 right 和 left 的距离大于 sum， 则 sum = right - left</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 时间复杂度 O(n)</span></span><br><span class="line"><span class="comment"> * 空间复杂度 O(n)</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @param &#123;string&#125; s</span></span><br><span class="line"><span class="comment"> * @return &#123;number&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> lengthOfLongestSubstring = <span class="function"><span class="keyword">function</span>(<span class="params">s</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> map = &#123;&#125;;</span><br><span class="line">    <span class="keyword">var</span> left = sum = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">var</span> right = <span class="number">-1</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span>(right++ &lt; s.length - 1 &amp;&amp; left &lt;= s.length) &#123;</span><br><span class="line">        // 如果当前字符在 无重复字符串中已存在，则 左指针从重复字符的下一位开始</span><br><span class="line">        // 同时重复字符的坐标变更</span><br><span class="line">        if(map[s[right]] &amp;&amp; map[s[right]] &gt;= left) &#123;</span><br><span class="line">            left = map[s[right]];</span><br><span class="line">            map[s[right]] = right + 1;</span><br><span class="line">        &#125;</span><br><span class="line">        // 如果不存在，则添加到 map 中</span><br><span class="line">        else &#123;</span><br><span class="line">            map[s[right]] = right + 1;</span><br><span class="line">            if(right - left + 1 &gt; sum) &#123;</span><br><span class="line">                sum = right - left + 1;</span><br><span class="line">            &#125; </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return sum;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/30/122-best-time-to-bssII/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Pearl">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/22272732?s=400&u=c8f3c5767dd9b1f6527be3f6d838171f8e69d1d1&v=4">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Pearl's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/08/30/122-best-time-to-bssII/" itemprop="url">【Leetcode】122. Best Time to Buy and Sell Stock II</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-30T20:20:07+08:00">
-                2018-08-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>题目链接：<a href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/description/" target="_blank" rel="noopener">https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/description/</a></p>
-</blockquote>
-<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定一个数组，它的第 i 个元素是一支给定股票第 i 天的价格。可以进行多次买卖，但是比如在卖出之后才能再次买入</p>
-<h2 id="输入输出"><a href="#输入输出" class="headerlink" title="输入输出"></a>输入输出</h2><p><strong>示例1：</strong></p>
-<ul>
-<li>输入: [7,1,5,3,6,4]</li>
-<li>输出: 7</li>
-<li>解释: 第二天买入（价格 1），第三天卖出（价格5），获得收益 5 - 1 = 4；第四天买入（价格3），第四天卖出（价格6），收益 6 - 3 = 3；总收益 4 + 3 = 7</li>
-</ul>
-<p><strong>示例2：</strong></p>
-<ul>
-<li>输入: [1,2,3,4,5]</li>
-<li>输出: 4</li>
-<li>解释: 第一天买入（价格1），第五天卖出（价格5），总收益 5 - 1 = 4</li>
-</ul>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>一遍循环，价格下降的时候找出最合适的买入价；价格上升的时候找出最合适的卖出价，卖出和买入价格都有值的时候计算出当前收益</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 时间复杂度：O(n)</span></span><br><span class="line"><span class="comment"> * 空间负责度：O(3) = O(1)</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @param &#123;number[]&#125; prices</span></span><br><span class="line"><span class="comment"> * @return &#123;number&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> maxProfit = <span class="function"><span class="keyword">function</span>(<span class="params">prices</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> sum = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">var</span> buy = prices[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">var</span> sale = <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">1</span> ; i &lt; prices.length; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span>(prices[i] &lt; prices[i - <span class="number">1</span>]) &#123;</span><br><span class="line">            <span class="comment">// 如果走势开始下降，并且之前已经有最大值和最小值</span></span><br><span class="line">            <span class="comment">// 则计算出之前买入和卖出的最大收益</span></span><br><span class="line">            <span class="keyword">if</span>(sale !== <span class="number">-1</span>) &#123;</span><br><span class="line">                sum += sale - buy;</span><br><span class="line">                sale = <span class="number">-1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            buy = prices[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(prices[i] &gt; prices[i - <span class="number">1</span>]) &#123;</span><br><span class="line">            sale = prices[i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 如果价格一直上升，则最后卖出，计算收益</span></span><br><span class="line">    <span class="keyword">if</span>(sale !== <span class="number">-1</span>) &#123;</span><br><span class="line">       sum += sale - buy;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> sum;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/29/189-rotate-array/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Pearl">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/22272732?s=400&u=c8f3c5767dd9b1f6527be3f6d838171f8e69d1d1&v=4">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Pearl's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/08/29/189-rotate-array/" itemprop="url">【Leetcode】189. Rotate Array</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-29T20:02:07+08:00">
-                2018-08-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>题目链接：<a href="https://leetcode.com/problems/rotate-array/description/" target="_blank" rel="noopener">https://leetcode.com/problems/rotate-array/description/</a></p>
-</blockquote>
-<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给出一个数组和一个数字 k，将数组的后 k 个数字移动到数组前面</p>
-<h2 id="输入输出"><a href="#输入输出" class="headerlink" title="输入输出"></a>输入输出</h2><p><strong>示例1：</strong></p>
-<ul>
-<li>输入：nums = [1,2,3,4,5], k = 2</li>
-<li>输出：[4,5,1,2,3]</li>
-</ul>
-<p><strong>示例2：</strong></p>
-<ul>
-<li>输入：nums = [1,2,3,4,5,6], k = 3</li>
-<li>输出：[4,5,6,1,2,3]</li>
-</ul>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p><strong>方法1：</strong></p>
-<ul>
-<li>如果每个数字当前所在的位置是 curr，那么他移动后的位置则是 (curr + k) % nums.length</li>
-<li>所以可以每个数字移动到他的下一位，然后把下一位数字继续移动到下一位</li>
-<li>上面的例子的移动过程可以描述如下：<ul>
-<li>示例1：1 -&gt; 3, 3 - &gt; 5, 5 -&gt; 2, 2 -&gt; 4, 4 -&gt; 1</li>
-<li>示例2：<ul>
-<li>1 -&gt; 4, 4 -&gt; 1</li>
-</ul>
-</li>
-<li>2 -&gt; 5, 5 -&gt; 2</li>
-<li>3 -&gt; 6, 6 -&gt; 3</li>
-</ul>
-</li>
-</ul>
-<p><strong>方法2：</strong></p>
-<ul>
-<li>首先将整个数组倒叙</li>
-<li>前 k 个数字再倒叙</li>
-<li>后 nums.length - k 个数字倒叙</li>
-<li>上面的例子的移动过程：<ul>
-<li>示例1：<ul>
-<li>[5,4,3,2,1]</li>
-<li>[4,5,3,2,1]</li>
-<li>[4,5,1,2,3]</li>
-</ul>
-</li>
-<li>示例2：<ul>
-<li>[6,5,4,3,2,1]</li>
-<li>[4,5,6,3,2,1]</li>
-<li>[4,5,6,1,2,3]</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p><strong>方法1：</strong></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 时间复杂度：O(n)</span></span><br><span class="line"><span class="comment"> * 空间复杂度：O(1)</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @param &#123;number[]&#125; nums</span></span><br><span class="line"><span class="comment"> * @param &#123;number&#125; k</span></span><br><span class="line"><span class="comment"> * @return &#123;void&#125; Do not return anything, modify nums in-place instead.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> rotate = <span class="function"><span class="keyword">function</span>(<span class="params">nums, k</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> len = nums.length;</span><br><span class="line">    k = k % nums.length;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 用于标记当前已经找到正确位置的数字的个数</span></span><br><span class="line">    <span class="keyword">var</span> cnt = <span class="number">0</span>;        </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; cnt &lt; len - <span class="number">1</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">var</span> curr = i;                   <span class="comment">// 指向当前将要移动的数字的坐标</span></span><br><span class="line">        <span class="keyword">var</span> next = (i + k) % len;       <span class="comment">// 当前数字应该移动到的地方的坐标</span></span><br><span class="line">        <span class="keyword">var</span> prev = nums[i];             <span class="comment">// 上一位数字</span></span><br><span class="line">        <span class="keyword">do</span> &#123;</span><br><span class="line">            <span class="keyword">var</span> tmp = nums[next];</span><br><span class="line">            nums[next] = prev;</span><br><span class="line">            prev = tmp;</span><br><span class="line">            curr = next;</span><br><span class="line">            next = (next + k) % len;</span><br><span class="line">            cnt ++;</span><br><span class="line">        &#125; <span class="keyword">while</span>(i !== curr);</span><br><span class="line">    &#125; </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 时间复杂度：O(2n) = O(n)</span></span><br><span class="line"><span class="comment"> * 空间复杂度：O(1)</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> reverse = <span class="function"><span class="keyword">function</span>(<span class="params">array, st, ed</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = st; i &lt; (st + ed) / <span class="number">2</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">var</span> tmp = array[ed + st - i - <span class="number">1</span>];</span><br><span class="line">        array[ed + st - i - <span class="number">1</span>] = array[i];</span><br><span class="line">        array[i] = tmp;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> array;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @param &#123;number[]&#125; nums</span></span><br><span class="line"><span class="comment"> * @param &#123;number&#125; k</span></span><br><span class="line"><span class="comment"> * @return &#123;void&#125; Do not return anything, modify nums in-place instead.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> rotate = <span class="function"><span class="keyword">function</span>(<span class="params">nums, k</span>) </span>&#123;</span><br><span class="line">    k = k % nums.length;</span><br><span class="line">    nums = reverse(nums, <span class="number">0</span>, nums.length);</span><br><span class="line">    nums = reverse(nums, <span class="number">0</span>, k);</span><br><span class="line">    nums = reverse(nums, k, nums.length);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/28/pseudo/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Pearl">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/22272732?s=400&u=c8f3c5767dd9b1f6527be3f6d838171f8e69d1d1&v=4">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Pearl's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/08/28/pseudo/" itemprop="url">伪元素 vs 伪类</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-28T13:24:33+08:00">
-                2018-08-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>原文链接：<a href="https://css-tricks.com/to-double-colon-or-not-do-double-colon/" target="_blank" rel="noopener">https://css-tricks.com/to-double-colon-or-not-do-double-colon/</a></p>
-</blockquote>
-<p>看了一篇讲双冒号和单冒号的博文，感觉讲的蛮细致的，所以这里翻译出来，如有翻译有误的地方辛苦指正。</p>
-<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>试问：CSS 中的双冒号 <code>::before</code> 和 单冒号 <code>:before</code> 哪种是伪元素的正确表述方式？</p>
-<p>从技术角度讲，双冒号 <code>::before</code> 是正确的，但是这样并不意味着所有情况都用双冒号。</p>
-<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><ul>
-<li>双冒号选择器表示的是伪元素</li>
-<li>单冒号选择器表示的是伪选择器</li>
-</ul>
-<p>而 <code>::before</code> 肯定是表示伪元素，所以这里应该用双冒号。</p>
-<h2 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h2><p>伪元素和伪选择器的用法经常会让人感到困惑，所以一般都是直接使用 <code>::before</code> 和 <code>::after</code>，这两者都是通过中页面添加新的元素来达到想要实现都页面效果。</p>
-<p>但是类似 <code>::first-letter</code> 这样都用法也是一个伪元素。所以我觉得它是用来选择页面上不存在的 HTML 元素中的一部分的。也就是说你想要选择的元素没有像 <code>&lt;span&gt;</code> 这样的标签包裹着，所以这 <code>first letter</code> 也可以认为是你要添加到页面上的一个元素。而伪选择器却不同，他们指向的都是页面中已经存在的元素，比如 <code>:nth-child(2)</code>。</p>
-<p>事实上，有一些特殊场景下不能通过双冒号来使用伪元素：</p>
-<ul>
-<li>IE8 以下的IE浏览器只支持 <code>:before</code> 不支持 <code>::before</code></li>
-<li>由于有大量站点使用了 <code>:before</code> 而浏览器的升级是向下兼容的，所以所有的现代浏览器都是支持这两种方式的</li>
-<li>少写一个字符也算是一种奖励吧</li>
-</ul>
-<p>听有些人说他们使用的 CSS 代码规范检查工具（或者自动化工具）要求必须使用单冒号。就我个人而言，无论选择哪种方式都是可以的。</p>
-<p>另一方面，有一个反面论点：</p>
-<ul>
-<li>单冒号伪元素是错误的，因为不会有伪元素是用单冒号的</li>
-<li>如果你认为这也是有区别的，不妨平时写代码的时候也按照正确的方式进行开发</li>
-<li>这些说的已经够混乱了，所以让我们按照正确的方法进行</li>
-</ul>
-<p>我已经通过配置我的自动化工具强制开发过程中使用双冒号了，因为我的开发过程中不会兼容到 IE8，所以目前开发中没有任何问题。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1758,7 +1736,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1771,7 +1749,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
