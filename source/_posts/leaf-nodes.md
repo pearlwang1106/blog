@@ -34,7 +34,7 @@ function getLeafNodes(node) {
 }
 ```
 
-#### 举个栗子
+#### 举个🌰
 
 <table style='margin-top:-550px'>
     <tr>
@@ -83,11 +83,11 @@ function getLeafNodes(node) {
 }
 ```
 
-#### 举个栗子
+#### 举个🌰
 
 层次遍历需要借助额外的空间，需要一个队列进行存储。同样是上面的树，通过层级遍历的过程如下所示，最后保留一个空方框是为了说明队列已空。
 
-<table>
+<table style='margin-top: -140px'>
     <tr>
         <td><img src='/images/tree10.png' width='320px'></td>
         <td>
