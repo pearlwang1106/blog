@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="javascript,webpack," />
+  <meta name="keywords" content="javascript,vue,vuex," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="打包优化的几种方式1. dll对于一些比较大的库，可以先进性打包后在引入 2. happypack 多线程打包启用多线程打包，js 是单线程，所以启用子进程打包  注意：项目比较小的时候，分配子进程所耗费的时候反而会增加打包时间，降低打包效率  1/* webpack.config.js */ 3. tree-shakingmodule 改成 production，此时打包过程中，没有 impor">
-<meta name="keywords" content="javascript,webpack">
+<meta name="description" content="每日一言：在这个声音吵杂的世界里相遇参考文档：https://vuex.vuejs.org/zh/  什么是 Vuex[摘自官网] Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。 简单讲，是 Vue 的状态管理库。以一个单例模式管理组件的共享状态。 使用场景 一个中大型单页应用中 跨组件">
+<meta name="keywords" content="javascript,vue,vuex">
 <meta property="og:type" content="article">
-<meta property="og:title" content="webpack v4+ 打包优化学习笔记">
-<meta property="og:url" content="http://yoursite.com/2018/09/14/webpack/index.html">
+<meta property="og:title" content="【学习笔记】Vuex">
+<meta property="og:url" content="http://yoursite.com/2018/10/17/vuex/index.html">
 <meta property="og:site_name" content="Pearl&#39;s Blog">
-<meta property="og:description" content="打包优化的几种方式1. dll对于一些比较大的库，可以先进性打包后在引入 2. happypack 多线程打包启用多线程打包，js 是单线程，所以启用子进程打包  注意：项目比较小的时候，分配子进程所耗费的时候反而会增加打包时间，降低打包效率  1/* webpack.config.js */ 3. tree-shakingmodule 改成 production，此时打包过程中，没有 impor">
+<meta property="og:description" content="每日一言：在这个声音吵杂的世界里相遇参考文档：https://vuex.vuejs.org/zh/  什么是 Vuex[摘自官网] Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。 简单讲，是 Vue 的状态管理库。以一个单例模式管理组件的共享状态。 使用场景 一个中大型单页应用中 跨组件">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-09-18T02:31:16.342Z">
+<meta property="og:updated_time" content="2018-10-18T11:24:42.324Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="webpack v4+ 打包优化学习笔记">
-<meta name="twitter:description" content="打包优化的几种方式1. dll对于一些比较大的库，可以先进性打包后在引入 2. happypack 多线程打包启用多线程打包，js 是单线程，所以启用子进程打包  注意：项目比较小的时候，分配子进程所耗费的时候反而会增加打包时间，降低打包效率  1/* webpack.config.js */ 3. tree-shakingmodule 改成 production，此时打包过程中，没有 impor">
+<meta name="twitter:title" content="【学习笔记】Vuex">
+<meta name="twitter:description" content="每日一言：在这个声音吵杂的世界里相遇参考文档：https://vuex.vuejs.org/zh/  什么是 Vuex[摘自官网] Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。 简单讲，是 Vue 的状态管理库。以一个单例模式管理组件的共享状态。 使用场景 一个中大型单页应用中 跨组件">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/09/14/webpack/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/10/17/vuex/"/>
 
 
 
 
 
-  <title>webpack v4+ 打包优化学习笔记 | Pearl's Blog</title>
+  <title>【学习笔记】Vuex | Pearl's Blog</title>
   
 
 
@@ -243,7 +243,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/14/webpack/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/17/vuex/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Pearl">
@@ -260,7 +260,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">webpack v4+ 打包优化学习笔记</h1>
+          <h1 class="post-title" itemprop="name headline">【学习笔记】Vuex</h1>
         
 
         <div class="post-meta">
@@ -272,8 +272,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-14T21:08:03+08:00">
-                2018-09-14
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-17T19:59:12+08:00">
+                2018-10-17
               </time>
             
 
@@ -310,23 +310,43 @@
       
 
       
-        <h2 id="打包优化的几种方式"><a href="#打包优化的几种方式" class="headerlink" title="打包优化的几种方式"></a>打包优化的几种方式</h2><h3 id="1-dll"><a href="#1-dll" class="headerlink" title="1. dll"></a>1. dll</h3><p>对于一些比较大的库，可以先进性打包后在引入</p>
-<h3 id="2-happypack-多线程打包"><a href="#2-happypack-多线程打包" class="headerlink" title="2. happypack 多线程打包"></a>2. happypack 多线程打包</h3><p>启用多线程打包，js 是单线程，所以启用子进程打包</p>
-<ul>
-<li>注意：项目比较小的时候，分配子进程所耗费的时候反而会增加打包时间，降低打包效率</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* webpack.config.js */</span></span><br></pre></td></tr></table></figure>
-<h3 id="3-tree-shaking"><a href="#3-tree-shaking" class="headerlink" title="3. tree-shaking"></a>3. tree-shaking</h3><p>module 改成 production，此时打包过程中，没有 import 的function 不会被打包， 从容减少打包后文件的大小</p>
-<ul>
-<li>注意 node exports.a 写法不会进行 tree-shakingstree-shakings</li>
-</ul>
-<h3 id="4-避免重复打包"><a href="#4-避免重复打包" class="headerlink" title="4. 避免重复打包"></a>4. 避免重复打包</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">output: &#123;</span><br><span class="line">    filename: [name].js,</span><br><span class="line">&#125;,</span><br><span class="line">optimization: &#123;</span><br><span class="line">    splitChunks: &#123;</span><br><span class="line">        cacheGroups: &#123;</span><br><span class="line">            common: &#123;</span><br><span class="line">                chunks: <span class="string">'initial'</span>,</span><br><span class="line">                minChunks: <span class="number">2</span>,</span><br><span class="line">                minSize: <span class="number">0</span></span><br><span class="line">            &#125;,</span><br><span class="line">            vendor: &#123;</span><br><span class="line">                test: <span class="regexp">/node_modules/</span>, <span class="comment">// 一般用来限制第三方插件多次打包</span></span><br><span class="line">                chunks: <span class="string">'initial'</span>,</span><br><span class="line">                minChunks: <span class="number">2</span>,</span><br><span class="line">                minSize: <span class="number">0</span>,</span><br><span class="line">                priority: <span class="number">10</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="5"><a href="#5" class="headerlink" title="5."></a>5.</h3><blockquote>
-<p>参考链接：<a href="https://webpack.docschina.org/plugins/module-concatenation-plugin" target="_blank" rel="noopener">https://webpack.docschina.org/plugins/module-concatenation-plugin</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let ModuleConcatenationPlugin</span><br></pre></td></tr></table></figure></p>
+        <blockquote>
+<p>每日一言：在这个声音吵杂的世界里相遇<br>参考文档：<a href="https://vuex.vuejs.org/zh/" target="_blank" rel="noopener">https://vuex.vuejs.org/zh/</a></p>
 </blockquote>
-<h3 id="6-懒加载"><a href="#6-懒加载" class="headerlink" title="6. 懒加载"></a>6. 懒加载</h3><blockquote>
-<p>参考文档：<a href="https://router.vuejs.org/guide/advanced/lazy-loading.html#grouping-components-in-the-same-chunk" target="_blank" rel="noopener">https://router.vuejs.org/guide/advanced/lazy-loading.html#grouping-components-in-the-same-chunk</a></p>
+<h2 id="什么是-Vuex"><a href="#什么是-Vuex" class="headerlink" title="什么是 Vuex"></a>什么是 Vuex</h2><p>[摘自官网] Vuex 是一个专为 Vue.js 应用程序开发的<strong>状态管理模式</strong>。它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。</p>
+<p>简单讲，是 Vue 的状态管理库。以一个单例模式管理组件的共享状态。</p>
+<h2 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h2><ul>
+<li>一个中大型单页应用中</li>
+<li>跨组件、跨页面的数据</li>
+<li>跨复杂组件的数据</li>
+</ul>
+<h2 id="最简单的-store"><a href="#最简单的-store" class="headerlink" title="最简单的 store"></a>最简单的 store</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 摘自官网 */</span></span><br><span class="line"><span class="keyword">const</span> store = <span class="keyword">new</span> Vuex.Store(&#123;</span><br><span class="line">    state: &#123;</span><br><span class="line">        count: <span class="number">0</span></span><br><span class="line">    &#125;,</span><br><span class="line">    mutations: &#123;</span><br><span class="line">        increment (state) &#123;</span><br><span class="line">        state.count++</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 触发变更 */</span></span><br><span class="line">store.commit(<span class="string">'increment'</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(store.state.count) <span class="comment">// -&gt; 1</span></span><br></pre></td></tr></table></figure>
+<h2 id="核心概念"><a href="#核心概念" class="headerlink" title="核心概念"></a>核心概念</h2><p>说明：官网中介绍的很详细，本文作为学习笔记，简单记录学习过程中的重点</p>
+<h3 id="State"><a href="#State" class="headerlink" title="State"></a>State</h3><blockquote>
+<p>单一状态树</p>
 </blockquote>
+<h4 id="获取"><a href="#获取" class="headerlink" title="获取"></a>获取</h4><ul>
+<li>单一状态<ul>
+<li>store.state.xxx</li>
+<li>子组件：this.$store.state.xxx</li>
+</ul>
+</li>
+<li>多状态<ul>
+<li>mapState 辅助函数，可以获取多个状态</li>
+<li>…mapState({}) 混入</li>
+</ul>
+</li>
+</ul>
+<h3 id="Getter"><a href="#Getter" class="headerlink" title="Getter"></a>Getter</h3><blockquote>
+<p>在 store 中定义 getter<br>接收 state 作为第一个参数<br>也可以接收其他 getter 作为第二个参数</p>
+</blockquote>
+<h4 id="访问"><a href="#访问" class="headerlink" title="访问"></a>访问</h4><ul>
+<li>单一状态<ul>
+<li>store.getters.xxx</li>
+<li>子组件：this.$store.getters.xxx</li>
+</ul>
+</li>
+</ul>
 
       
     </div>
@@ -346,7 +366,9 @@
           
             <a href="/tags/javascript/" rel="tag"># javascript</a>
           
-            <a href="/tags/webpack/" rel="tag"># webpack</a>
+            <a href="/tags/vue/" rel="tag"># vue</a>
+          
+            <a href="/tags/vuex/" rel="tag"># vuex</a>
           
         </div>
       
@@ -359,8 +381,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/09/13/sass/" rel="next" title="Sass 学习">
-                <i class="fa fa-chevron-left"></i> Sass 学习
+              <a href="/2018/10/16/myfriend-kong/" rel="next" title="我的朋友-阿空">
+                <i class="fa fa-chevron-left"></i> 我的朋友-阿空
               </a>
             
           </div>
@@ -368,10 +390,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/09/20/ideals30/" rel="prev" title="理想三旬">
-                理想三旬 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -508,7 +526,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#打包优化的几种方式"><span class="nav-number">1.</span> <span class="nav-text">打包优化的几种方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-dll"><span class="nav-number">1.1.</span> <span class="nav-text">1. dll</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-happypack-多线程打包"><span class="nav-number">1.2.</span> <span class="nav-text">2. happypack 多线程打包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-tree-shaking"><span class="nav-number">1.3.</span> <span class="nav-text">3. tree-shaking</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-避免重复打包"><span class="nav-number">1.4.</span> <span class="nav-text">4. 避免重复打包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5"><span class="nav-number">1.5.</span> <span class="nav-text">5.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-懒加载"><span class="nav-number">1.6.</span> <span class="nav-text">6. 懒加载</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是-Vuex"><span class="nav-number">1.</span> <span class="nav-text">什么是 Vuex</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用场景"><span class="nav-number">2.</span> <span class="nav-text">使用场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最简单的-store"><span class="nav-number">3.</span> <span class="nav-text">最简单的 store</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#核心概念"><span class="nav-number">4.</span> <span class="nav-text">核心概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#State"><span class="nav-number">4.1.</span> <span class="nav-text">State</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#获取"><span class="nav-number">4.1.1.</span> <span class="nav-text">获取</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Getter"><span class="nav-number">4.2.</span> <span class="nav-text">Getter</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#访问"><span class="nav-number">4.2.1.</span> <span class="nav-text">访问</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
