@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="sass," />
+  <meta name="keywords" content="javascript,vue,mixin," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="参考文档: https://www.sass.hk/docs/  Sass 可以认为是 css 的预处理, 在 CSS 语法的基础上增加了变量 (variables)、嵌套 (nested rules)、混合 (mixins)、导入 (inline imports) 等高级功能，这些拓展令 CSS 更加强大与优雅. 开源库compass 中就是基于 sass 完成的一个非常丰富的样式框架，包括大">
-<meta name="keywords" content="sass">
+<meta name="description" content="每日一言：有点无聊，我们来一起骂男人吧参考文档：https://vuejs.org/v2/guide/mixins.html  定义【摘自 vue 官网】混入 (mixins) 是一种分发 Vue 组件中可复用功能的非常灵活的方式。混入对象可以包含任意组件选项。当组件使用混入对象时，所有混入对象的选项将被混入该组件本身的选项。 简单讲，混入就是讲一个数据对象中的属性合并到组件中，达到对可复用的属">
+<meta name="keywords" content="javascript,vue,mixin">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Sass 学习">
-<meta property="og:url" content="http://yoursite.com/2018/09/13/sass/index.html">
+<meta property="og:title" content="【学习笔记】Vue mixin">
+<meta property="og:url" content="http://yoursite.com/2018/10/24/vue-mixin/index.html">
 <meta property="og:site_name" content="Pearl&#39;s Blog">
-<meta property="og:description" content="参考文档: https://www.sass.hk/docs/  Sass 可以认为是 css 的预处理, 在 CSS 语法的基础上增加了变量 (variables)、嵌套 (nested rules)、混合 (mixins)、导入 (inline imports) 等高级功能，这些拓展令 CSS 更加强大与优雅. 开源库compass 中就是基于 sass 完成的一个非常丰富的样式框架，包括大">
+<meta property="og:description" content="每日一言：有点无聊，我们来一起骂男人吧参考文档：https://vuejs.org/v2/guide/mixins.html  定义【摘自 vue 官网】混入 (mixins) 是一种分发 Vue 组件中可复用功能的非常灵活的方式。混入对象可以包含任意组件选项。当组件使用混入对象时，所有混入对象的选项将被混入该组件本身的选项。 简单讲，混入就是讲一个数据对象中的属性合并到组件中，达到对可复用的属">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-09-13T07:57:37.482Z">
+<meta property="og:updated_time" content="2018-10-25T11:47:27.756Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Sass 学习">
-<meta name="twitter:description" content="参考文档: https://www.sass.hk/docs/  Sass 可以认为是 css 的预处理, 在 CSS 语法的基础上增加了变量 (variables)、嵌套 (nested rules)、混合 (mixins)、导入 (inline imports) 等高级功能，这些拓展令 CSS 更加强大与优雅. 开源库compass 中就是基于 sass 完成的一个非常丰富的样式框架，包括大">
+<meta name="twitter:title" content="【学习笔记】Vue mixin">
+<meta name="twitter:description" content="每日一言：有点无聊，我们来一起骂男人吧参考文档：https://vuejs.org/v2/guide/mixins.html  定义【摘自 vue 官网】混入 (mixins) 是一种分发 Vue 组件中可复用功能的非常灵活的方式。混入对象可以包含任意组件选项。当组件使用混入对象时，所有混入对象的选项将被混入该组件本身的选项。 简单讲，混入就是讲一个数据对象中的属性合并到组件中，达到对可复用的属">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/09/13/sass/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/10/24/vue-mixin/"/>
 
 
 
 
 
-  <title>Sass 学习 | Pearl's Blog</title>
+  <title>【学习笔记】Vue mixin | Pearl's Blog</title>
   
 
 
@@ -243,7 +243,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/13/sass/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/24/vue-mixin/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Pearl">
@@ -260,7 +260,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Sass 学习</h1>
+          <h1 class="post-title" itemprop="name headline">【学习笔记】Vue mixin</h1>
         
 
         <div class="post-meta">
@@ -272,8 +272,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-13T15:24:54+08:00">
-                2018-09-13
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-24T19:03:52+08:00">
+                2018-10-24
               </time>
             
 
@@ -311,47 +311,24 @@
 
       
         <blockquote>
-<p>参考文档: <a href="https://www.sass.hk/docs/" target="_blank" rel="noopener">https://www.sass.hk/docs/</a></p>
+<p>每日一言：有点无聊，我们来一起骂男人吧<br>参考文档：<a href="https://vuejs.org/v2/guide/mixins.html" target="_blank" rel="noopener">https://vuejs.org/v2/guide/mixins.html</a></p>
 </blockquote>
-<p>Sass 可以认为是 css 的预处理, 在 CSS 语法的基础上增加了变量 (variables)、嵌套 (nested rules)、混合 (mixins)、导入 (inline imports) 等高级功能，这些拓展令 CSS 更加强大与优雅. 开源库<a href="http://compass-style.org/" target="_blank" rel="noopener">compass</a> 中就是基于 sass 完成的一个非常丰富的样式框架，包括大量定义好的mixin，函数，以及对SASS的扩展</p>
-<h2 id="sass-主要特点"><a href="#sass-主要特点" class="headerlink" title="sass 主要特点"></a>sass 主要特点</h2><ul>
-<li><p>支持变量</p>
-<ul>
-<li>变量作用域</li>
-<li><p>变量命名中线和下划线不做区分($custom-name 和 $custom_name 是一样的)</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$width: 5em;</span><br><span class="line"><span class="selector-id">#main</span> &#123;</span><br><span class="line"><span class="attribute">width</span>: $width;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 编译后 */</span></span><br><span class="line"><span class="selector-id">#main</span> &#123;</span><br><span class="line"><span class="attribute">width</span>: <span class="number">5em</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>【摘自 vue 官网】混入 (mixins) 是一种分发 Vue 组件中可复用功能的非常灵活的方式。混入对象可以包含任意组件选项。当组件使用混入对象时，所有混入对象的选项将被混入该组件本身的选项。</p>
+<p>简单讲，混入就是讲一个数据对象中的属性合并到组件中，达到对可复用的属性，方法，功能等一个比较高的利用率。</p>
+<h3 id="举个-🌰"><a href="#举个-🌰" class="headerlink" title="举个 🌰"></a>举个 🌰</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 摘自官网 */</span></span><br><span class="line"><span class="keyword">var</span> myMixin = &#123;</span><br><span class="line">  created: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.hello();</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    hello: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'hello from mixin!'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 调用 */</span></span><br><span class="line"><span class="keyword">var</span> Component = Vue.extend(&#123;</span><br><span class="line">  mixins: [myMixin]</span><br><span class="line">&#125;);</span><br><span class="line"><span class="keyword">var</span> component = <span class="keyword">new</span> Component(); <span class="comment">// =&gt; "hello from mixin!"</span></span><br></pre></td></tr></table></figure>
+<p>上述例子可以看出，首先定义了一个 mixin 对象 myMixin，对象中有两个 function，created 和 methods。然后通过 Vue.extend 将 myMixin 混入到组件 Component 中，也就是说 Component 组件用用了 created 和 methods 两个方法。此时通过 new 去创建一个组件实例的时候会自动执行这两个个函数。</p>
+<h2 id="规则"><a href="#规则" class="headerlink" title="规则"></a>规则</h2><ul>
+<li><p>当组件和混入对象含有同名选项时，这些选项将以恰当的方式混合</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 摘自官网 */</span></span><br><span class="line"><span class="keyword">var</span> mixin = &#123;</span><br><span class="line">  data: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      message: <span class="string">'hello'</span>,</span><br><span class="line">      foo: <span class="string">'abc'</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  mixins: [mixin],</span><br><span class="line">  data: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      message: <span class="string">'goodbye'</span>,</span><br><span class="line">      bar: <span class="string">'def'</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  created: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.$data)</span><br><span class="line">    <span class="comment">// =&gt; &#123; message: "goodbye", foo: "abc", bar: "def" &#125;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 </li>
+<li><p>混入对象的钩子将在组件自身钩子之前调用</p>
+</li>
+<li>值为对象的选项，例如 methods, components 和 directives，将被混合为同一个对象。两个对象键名冲突时，取组件对象的键值对</li>
+<li>也可以全局注册混入对象，一旦使用全局混入对象，将会影响到 所有 之后创建的 Vue 实例，需要恰当使用</li>
 </ul>
-</li>
-<li><p>允许嵌套</p>
-<ul>
-<li>父选择器用 &amp; 表示</li>
-<li>属性嵌套</li>
-<li>群组嵌套</li>
+<h2 id="混入策略"><a href="#混入策略" class="headerlink" title="混入策略"></a>混入策略</h2><ul>
+<li>参考：<a href="https://vuejs.org/v2/guide/mixins.html#Custom-Option-Merge-Strategies" target="_blank" rel="noopener">https://vuejs.org/v2/guide/mixins.html#Custom-Option-Merge-Strategies</a></li>
 </ul>
-</li>
-<li><code>//</code> 注释编译后不会在 css 中显示</li>
-<li>支持命令行操作(SassScript)</li>
-<li><p>支持导入文件(@import)</p>
-<ul>
-<li>sass(如果不想导入文件被编译为css, 则以下划线开头命名, 导入时不用加下划线, 如下例)</li>
-<li>scss</li>
-<li><p>css</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 文件 _colors.scss */</span></span><br><span class="line"></span><br><span class="line">@<span class="keyword">import</span> colors</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>支持继承</p>
-<ul>
-<li>多重继承</li>
-<li>链式继承</li>
-</ul>
-</li>
-<li>支持控制指令 (@if @else 等)</li>
-<li>支持混合器(@mixin) (用于定义可重复使用的样式，避免了使用无语意的 class)</li>
-<li>支持函数</li>
-</ul>
-<p>这里只是个人的学习笔记, 详细使用可以参考: <a href="https://www.sass.hk/docs/" target="_blank" rel="noopener">https://www.sass.hk/docs/</a>, 后续使用过程中如果遇到觉得比较重点的问题会继续更新</p>
 
       
     </div>
@@ -369,7 +346,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/sass/" rel="tag"># sass</a>
+            <a href="/tags/javascript/" rel="tag"># javascript</a>
+          
+            <a href="/tags/vue/" rel="tag"># vue</a>
+          
+            <a href="/tags/mixin/" rel="tag"># mixin</a>
           
         </div>
       
@@ -382,8 +363,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/09/12/git-submodule/" rel="next" title="Git submodule (Git 子模块)">
-                <i class="fa fa-chevron-left"></i> Git submodule (Git 子模块)
+              <a href="/2018/10/23/zhoujiang/" rel="next" title="周将的诗">
+                <i class="fa fa-chevron-left"></i> 周将的诗
               </a>
             
           </div>
@@ -392,8 +373,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/09/14/webpack/" rel="prev" title="webpack v4+ 打包优化学习笔记">
-                webpack v4+ 打包优化学习笔记 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/10/25/rag-doll/" rel="prev" title="我的布娃娃">
+                我的布娃娃 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -531,7 +512,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#sass-主要特点"><span class="nav-number">1.</span> <span class="nav-text">sass 主要特点</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#定义"><span class="nav-number">1.</span> <span class="nav-text">定义</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#举个-🌰"><span class="nav-number">1.1.</span> <span class="nav-text">举个 🌰</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#规则"><span class="nav-number">2.</span> <span class="nav-text">规则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#混入策略"><span class="nav-number">3.</span> <span class="nav-text">混入策略</span></a></li></ol></div>
             
 
           </div>

@@ -1,5 +1,5 @@
 ---
-title: 常用命令(持续更新)
+title: 【持续更新】常用命令
 date: 2018-10-09 10:55:26
 tags: ['shell']
 ---
@@ -53,3 +53,15 @@ brew install tree
     -u 列出文件或目录的拥有者名称，没有对应的名称时，则显示用户识别码。
     -x 将范围局限在现行的文件系统中，若指定目录下的某些子目录，其存放于另一个文件系统上，则将该子目录予以排除在寻找范围外。
 ```
+
+- http-server
+    - 说明：启动本地服务
+    - 安装：
+    ```js
+    npm install http-server -g
+    ```
+    - 使用：
+    ```js
+    http-server [path] [options]
+    ```
+    - 参数解释：参考 https://github.com/indexzero/http-server

@@ -1,6 +1,6 @@
 ---
 title: 【学习笔记】Vue mixin
-date: 2018-10-25 19:03:52
+date: 2018-10-24 19:03:52
 tags: ['javascript', 'vue', 'mixin']
 ---
 
