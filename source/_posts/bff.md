@@ -10,3 +10,6 @@ tags: ['服务', '后端']
 
 BFF(Backends for Frontends) 又叫做服务于前端的后端。由 Sam Newman 提出。
 
+## 使用场景
+
+## 可用框架
