@@ -12,4 +12,8 @@ BFF(Backends for Frontends) 又叫做服务于前端的后端。由 Sam Newman �
 
 ## 使用场景
 
+- 多端适配
+- 后端业务逻辑
+- API 抹平
+
 ## 可用框架
