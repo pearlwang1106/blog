@@ -22,7 +22,6 @@ BFF(Backends for Frontends) 又叫做服务于前端的后端。由 Sam Newman �
     - express
     - koa
     - egg
-    - fasity
 - php
 - go
 - python
